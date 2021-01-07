@@ -52,7 +52,7 @@ export default {
       try {
         await this.$api.createCollaborator({
           owner: this.$route.params.owner,
-          repo: this.$roue.params.repo,
+          repo: this.$route.params.repo,
           username: this.username,
           secret: this.secret,
         });
