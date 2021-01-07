@@ -1,0 +1,10 @@
+{
+  "githubApi": {
+    "userAgent": "Test User Agent"
+  },
+  "addCollaborator": {
+    "owner": "test-owner",
+    "repos": ["test-repo-one"],
+    "secret": "example-secret"
+  }
+}

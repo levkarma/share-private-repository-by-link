@@ -1,5 +1,5 @@
 const log = { info: console.log };
-const config = require("../config");
+const db = require("../db");
 const express = require("express");
 const router = express.Router();
 const { Octokit } = require("@octokit/rest");
@@ -7,7 +7,7 @@ const { body, validationResult } = require("express-validator");
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_ACCESS_CODE,
-  userAgent: config.githubApi.userAgent,
+  userAgent: db.githubApi.userAgent,
 });
 
 const validateMiddleware = (req, res, next) => {
@@ -24,16 +24,16 @@ router.post(
   "/add-collaborator",
   body("repo")
     .exists()
-    .custom((val) => config.addCollaborator.repos.includes(val)),
+    .custom((val) => db.addCollaborator.repos.includes(val)),
   body("username").exists(),
   body("secret")
     .exists()
-    .custom((val) => val === config.addCollaborator.secret),
+    .custom((val) => val === db.addCollaborator.secret),
   validateMiddleware,
   async (req, res) => {
     try {
       await octokit.repos.addCollaborator({
-        owner: config.addCollaborator.owner,
+        owner: db.addCollaborator.owner,
         repo: req.body.repo,
         username: req.body.username,
         permission: "pull",
