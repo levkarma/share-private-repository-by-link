@@ -12,14 +12,28 @@
       <b-button @click="clickMe">Submit</b-button>
     </section>
     <b-message type="is-success" v-if="success">
-      Successfully invited you to be a collaborator. Please log into Github and
-      visit
-      <strong
-        ><a :href="fullGithubRepoUrl">{{ fullGithubRepoUrl }}</a></strong
-      >
-      or check your
-      <strong>Github associated email</strong>
-      to accept the invitation.
+      Successfully invited you to be a collaborator. Please
+      <div class="content">
+        <ol>
+          <li>
+            <strong>Ensure your are logged into Github </strong>using the
+            username you entered
+          </li>
+          <li>
+            Then visit
+            <a :href="fullGithubRepoUrl">{{ fullGithubRepoUrl }}</a> to accept
+            the invite
+          </li>
+        </ol>
+        <strong>or</strong>
+        <ol>
+          <li>
+            Check your
+            <strong>Github associated email</strong>
+            to accept the invitation
+          </li>
+        </ol>
+      </div>
     </b-message>
     <b-message type="is-danger" v-if="failure"
       >Please ensure the username is valid and that you are not already a
