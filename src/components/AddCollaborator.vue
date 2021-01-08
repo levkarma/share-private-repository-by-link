@@ -12,10 +12,11 @@
       <b-input v-model="secret"></b-input>
     </b-field>
     <section class="mb-4">
-      <b-button @click="clickMe">Click Me</b-button>
+      <b-button @click="clickMe">Submit</b-button>
     </section>
     <b-message type="is-success" v-if="success">
-      Successfully invited you to be a collaborator. Please visit
+      Successfully invited you to be a collaborator. Please log into Github and
+      visit
       <strong
         ><a :href="fullGithubRepoUrl">{{ fullGithubRepoUrl }}</a></strong
       >
@@ -24,7 +25,8 @@
       to accept the invitation.
     </b-message>
     <b-message type="is-danger" v-if="failure"
-      >Please ensure the username and secret are valid.</b-message
+      >Please ensure the username and secret are valid and that you are not
+      already a collaborator.</b-message
     >
   </section>
 </template>
