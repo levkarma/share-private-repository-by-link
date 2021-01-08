@@ -8,9 +8,6 @@
     <b-field label="Your Github Username">
       <b-input v-model="username"></b-input>
     </b-field>
-    <b-field label="The Secret I Provided To You">
-      <b-input v-model="secret"></b-input>
-    </b-field>
     <section class="mb-4">
       <b-button @click="clickMe">Submit</b-button>
     </section>
@@ -25,8 +22,8 @@
       to accept the invitation.
     </b-message>
     <b-message type="is-danger" v-if="failure"
-      >Please ensure the username and secret are valid and that you are not
-      already a collaborator.</b-message
+      >Please ensure the username is valid and that you are not already a
+      collaborator.</b-message
     >
   </section>
 </template>
@@ -56,7 +53,7 @@ export default {
           owner: this.$route.params.owner,
           repo: this.$route.params.repo,
           username: this.username,
-          secret: this.secret,
+          secret: this.$route.params.secret,
         });
         this.success = true;
         this.failure = false;

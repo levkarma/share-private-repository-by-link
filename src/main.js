@@ -12,7 +12,7 @@ Vue.use(VueRouter);
 Vue.config.productionTip = false;
 
 const routes = [
-  { path: "/private-repos/:owner/:repo", component: AddCollaborator },
+  { path: "/private-repos/:owner/:repo/:secret", component: AddCollaborator },
 ];
 
 const router = new VueRouter({
