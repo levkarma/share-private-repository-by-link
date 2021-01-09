@@ -47,7 +47,6 @@ export default {
   data() {
     return {
       username: "",
-      secret: "",
       success: false,
       failure: false,
     };

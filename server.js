@@ -6,6 +6,7 @@ app.use(express.static("dist"));
 
 app.use(express.json());
 app.use("/api", api);
+// Serve the build Vue app
 app.get("/", function(req, res) {
   res.sendFile("/dist/index.html");
 });
